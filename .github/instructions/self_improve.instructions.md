@@ -68,4 +68,4 @@ applyTo: "**/*"
   - Update references to external docs
   - Maintain links between related rules
   - Document breaking changes
-Follow [vscode_rules.instructions.md](.github/instructions/vscode_rules.instructions.md) for proper rule formatting and structure.
+Follow [vscode_rules.instructions.md](vscode_rules.instructions.md) for proper rule formatting and structure.

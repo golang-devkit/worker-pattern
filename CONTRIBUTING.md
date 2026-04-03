@@ -148,6 +148,7 @@ worker.RunMasterServer(8080, os.Args[0], worker.Option{
 ### Backward Compatibility
 
 All Option-based changes are **fully backward compatible**:
+
 - Existing code calling `RunMasterServer(port, cmd)` continues to work
 - Default worker count remains 5
 - Opt-in configuration through Option struct

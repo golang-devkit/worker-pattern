@@ -146,9 +146,36 @@ The socket-sharing trick works like this:
 
 ### Public API (pkg/worker/)
 
-- `RunMasterServer(port, command, args)` — Simplest way to start master with child process
-- `RunMasterWith(files, command, args)` — Advanced: pass custom file descriptors
+**Configuration Structure:**
+
+```go
+type Option struct {
+    Args      []string  // Arguments passed to worker processes
+    NumWorker int       // Number of workers (default: 5, must be > 0)
+}
+```
+
+**Main Functions:**
+
+- `RunMasterServer(port int, command string, opts ...Option)` — Start master server with optional configuration
+- `RunMasterWith(extraFiles []*os.File, command string, opts ...Option)` — Advanced: custom file descriptors
 - `RegisterWorker(executeFunc)` — Custom worker implementation with shutdown callback
+
+**Usage Examples:**
+
+```go
+// Default: 5 workers on port 8080
+worker.RunMasterServer(8080, os.Args[0])
+
+// Custom worker count
+worker.RunMasterServer(8080, os.Args[0], worker.Option{NumWorker: 10})
+
+// With arguments and custom count
+worker.RunMasterServer(8080, os.Args[0], worker.Option{
+    NumWorker: 4,
+    Args:      []string{"-verbose", "-timeout", "60s"},
+})
+```
 
 ## Code Navigation Tips
 
