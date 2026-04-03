@@ -1,0 +1,121 @@
+# These are some examples of commonly ignored file patterns.
+# You should customize this list as applicable to your project.
+# Learn more about .gitignore:
+#     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
+
+# Node artifact files
+node_modules/
+package-lock.json
+package.json
+
+# Temporary files
+tmp/
+temp/
+downloaded_*
+sample.txt
+
+# Dependency directories
+dist/
+vendor/
+
+# Go workspace file
+go.work
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# JetBrains IDE
+.idea/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Unit test reports
+TEST*.xml
+
+# Directories for build outputs
+bin/
+
+# Binaries for programs and plugins
+*.app
+*.exe
+*.exe~
+*.war
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Environment files
+.env
+.env.*
+
+# Log files
+*.log
+
+# Large media files
+*.mp4
+*.tiff
+*.avi
+*.flv
+*.mov
+*.wmv
+
+# Configuration files
+*config.json
+
+# Keys file
+*.pem
+*.json
+*.yaml
+*.env
+*-adminsdk-*.json
+*-api-key*.txt
+
+# Allow list of files
+!.gitignore
+!.github/workflows/*.yml
+!.github/copilot-integrations.md
+!.github/rules/*.yaml
+!.github/specifications/*.yaml
+!.github/prompts/*.txt
+!.github/prompts/*.md
+!**/*.mmd
+
+# Allow list of documentation files
+!CONTRIBUTING.md
+!CODE_OF_CONDUCT.md
+
+# GitNexus specific files
+.gitnexus
+**/gitnexus
+
+# Taskmaster specific files
+**/taskmaster
+.taskmaster/reports
+.taskmaster/tasks
+.taskmaster/config.json
+.taskmaster/state.json
+
+# Task files
+tasks.json
+tasks/ 
+
+# AI local specific files
+AGENTS.md
+CLAUDE.md
