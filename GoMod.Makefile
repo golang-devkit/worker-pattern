@@ -51,3 +51,11 @@ fetch-module: fetch-mod upgrade-module
 			-C $(shell pwd) ./... #Please use flag "-show verbose" to show details
 	@echo "✅ Successful!"
 
+fetch-pkg-worker:
+	@echo "==> Fetch Go module..."; \
+		cd pkg/worker && go mod tidy; \
+		echo "✅ Fetch Go module completed!"
+	@echo "==> Building worker package..."; \
+		cd pkg/worker && \
+		go build -o /tmp/ -trimpath ./...
+	@echo "✅ Build completed!"
