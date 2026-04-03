@@ -1,0 +1,24 @@
+# Markdownlint configuration for worker-pattern lab
+# Relaxed rules for documentation and contribution guides
+
+rules:
+  # MD013: Line length - documentation naturally exceeds 80 chars
+  MD013: false
+
+  # MD025: Single title/h1 - allow multiple h1s in special cases
+  MD025: false
+
+  # MD031: Blanks around fences - allow code blocks without blank lines
+  MD031: false
+
+  # MD032: Blanks around lists - allow flexible list formatting
+  MD032: false
+
+  # MD040: Fenced code language - allow generic code blocks
+  MD040: false
+
+  # MD060: Table column style - allow flexible table formatting
+  MD060: false
+
+  # MD033: Inline HTML - allow HTML comments in documentation
+  MD033: false

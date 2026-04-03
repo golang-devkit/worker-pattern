@@ -1,0 +1,17 @@
+[Unit]
+Description=Go Multi-Process HTTP Server
+After=network.target
+
+[Service]
+Type=notify
+PIDFile=/run/worker_pattern.pid
+ExecStart=/usr/local/bin/worker_pattern --port=3000 --worker=5
+Restart=on-failure
+RestartSec=5s
+NotifyAccess=main
+
+# Giới hạn tài nguyên
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
