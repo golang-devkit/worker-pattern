@@ -76,6 +76,21 @@ build-linux:
 build-docker:
 	@echo "Building Docker image... (not implemented yet)"
 
+# Build stress test tool
+stresstest:
+	@echo "==> Building stress test tool..."
+	@mkdir -p $(BIN_DIR)
+	@go build -mod=vendor -v -o $(BIN_DIR)/stresstest -trimpath ./cmd/stresstest
+
+# Run stress test (requires running server)
+stress: stresstest
+	@echo "==> Running stress test against http://27.71.229.15:3000/heavy"
+	@$(BIN_DIR)/stresstest \
+		-concurrency=80 \
+		-rampup=80s \
+		-requests=1000 \
+		-timeout=30s
+
 # Defined help command
 help:
 	@echo "Available commands:"
@@ -83,5 +98,8 @@ help:
 	@echo "  make run          : Build and run the application."
 	@echo "  make test         : Run all unit tests with race detector."
 	@echo "  make clean        : Remove build artifacts."
+	@echo "  make build-linux  : Build for Linux (amd64)."
+	@echo "  make stresstest   : Build the stress test tool."
+	@echo "  make stress       : Build and run stress test tool."
 	@echo "  make build-docker : Build the Docker image (TBD)."
 	@echo "  make help         : Show this help message."
